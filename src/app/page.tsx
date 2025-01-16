@@ -67,7 +67,7 @@ export default function Home() {
       <div className={ ` w-full h-screen  ${theme === "dark" ? "dark-theme" : "light-theme"}`}>
         <div className="header_img flex relative flex-col justify-center items-center">
           <div className="flex w-[40%] gap-5 justify-between items-center">
-            <h3 className="text-3xl font-bold">TODO</h3>
+            <h3 className="text-3xl text-white font-bold">TODO</h3>
             <span onClick={toggleTheme} className="cursor-pointer">
               <Image src={theme === "dark" ? sunImg : moonImg} alt="Theme Toggle" />
             </span>
@@ -91,7 +91,7 @@ export default function Home() {
                         key={task.id}
                         onMouseEnter={() => setHoverIndex(task.id)}
                         onMouseLeave={() => setHoverIndex(-1)}
-                        className="flex cursor-pointer items-center py-4 px-6 border-b border-b-slate-300 justify-between"
+                        className={`flex cursor-pointer ${theme === 'dark' ? 'border-b-gray-600 ' : 'border-b-gray-200 ' } items-center py-4 px-6 border-b border-b-gray-200 justify-between`}
                       >
                         <div className="flex gap-5">
                           <button
@@ -99,11 +99,11 @@ export default function Home() {
                                   completedList.includes(task.id)
                                       ? "checkedLinearGradient"
                                       : "bg-transparent"
-                              } w-6 h-6 rounded-full border border-veryDarkGrayishBlue`}
+                              } w-6 h-6 rounded-full border hover:bg-gradient-to-r  hover:from-primary hover:to-secondary border-veryDarkGrayishBlue`}
                               onClick={() => handleCompleted(task.id)}
                           ></button>
                           <p
-                              className={`text-lightGrayishBlue ${
+                              className={` taskText font-bold ${
                                   completedList.includes(task.id) ? "line-through" : ""
                               }`}
                           >
@@ -117,33 +117,33 @@ export default function Home() {
                         )}
                       </div>
                   ))}
-                  <hr  />
+
                   <div className="flex justify-between items-center px-6 py-4 text-darkGrayishBlue font-bold">
                     <div>
                       <p>{todoList.filter((task) => !completedList.includes(task.id)).length} items left</p>
                     </div>
                     <div className="flex gap-5 justify-center cursor-pointer">
                   <span
-                      className={`hover:text-white ${filterBy === "all" && "text-blue-500"}`}
+                      className={`taskFilter ${filterBy === "all" && "text-blue-500"}`}
                       onClick={() => setFilterBy("all")}
                   >
                     All
                   </span>
                       <span
-                          className={`hover:text-white ${filterBy === "active" && "text-blue-500"}`}
+                          className={`taskFilter ${filterBy === "active" && "text-blue-500"}`}
                           onClick={() => setFilterBy("active")}
                       >
                     Active
                   </span>
                       <span
-                          className={`hover:text-white ${filterBy === "completed" && "text-blue-500"}`}
+                          className={`taskFilter ${filterBy === "completed" && "text-blue-500"}`}
                           onClick={() => setFilterBy("completed")}
                       >
                     Completed
                   </span>
                     </div>
                     <div>
-                      <p className="cursor-pointer hover:text-white" onClick={handleClearCompleted}>
+                      <p className="cursor-pointer taskFilter" onClick={handleClearCompleted}>
                         Clear Completed
                       </p>
                     </div>

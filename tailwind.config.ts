@@ -18,6 +18,10 @@ export default {
         veryDarkGrayishBlueTwo: "hsl(237, 14%, 26%)",
         brightBlue: "hsl(220, 98%, 61%)"
       },
+      gradientColorStops: {
+        primary: "hsl(192, 100%, 67%)",
+        secondary: "hsl(280, 87%, 65%)",
+      },
     },
   },
   plugins: [],

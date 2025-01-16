@@ -35,8 +35,17 @@ body.light-theme {
 }
 
 
-.header_img {
+.dark-theme .header_img {
   background: url("../../public/images/bg-desktop-dark.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 300px;
+}
+
+.light-theme .header_img {
+  background: url("../../public/images/bg-desktop-light.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -51,13 +60,11 @@ body.light-theme {
 /* Dark Theme */
 .dark-theme {
   background: hsl(235, 21%, 11%);
-  color: #e4e4e7;
 }
 
 /* Light Theme */
 .light-theme {
   background-color: hsl(236, 33%, 92%);
-  color: #181824;
 }
 
 /* Adjust input and button styles for each theme */
@@ -71,11 +78,30 @@ body.light-theme {
   background-color: white;
 }
 
-.light-theme hr{
-  border: 1px solid hsl(233, 14%, 35%);
+
+
+.light-theme .taskFilter:hover{
+  color: #000;
 }
 
-.dark-theme hr{
-  border: 1px solid hsl(233, 14%, 35%);
+.dark-theme .taskFilter:hover{
+  color: #fff;
 }
 
+.light-theme .taskText{
+  color: hsl(233, 14%, 35%);
+}
+
+.dark-theme .taskText{
+  color: hsl(234, 39%, 85%);
+}
+
+.border-checked-gradient {
+  background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  border-radius: 9999px; /* For full circular borders */
+  width: 100%; /* Ensure proper sizing */
+  height: 100%;
+  mask: border-box;
+  -webkit-mask-composite: destination-in;
+  mask-composite: exclude;
+}
