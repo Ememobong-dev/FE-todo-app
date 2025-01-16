@@ -88,10 +88,10 @@ export default function Home() {
                 <div className="input-bg  mt-20 w-[40%]">
                   {mappingObject.map((task) => (
                       <div
-                          key={task.id}
-                          onMouseEnter={() => setHoverIndex(task.id)}
-                          onMouseLeave={() => setHoverIndex(-1)}
-                          className="flex cursor-pointer items-center py-4 px-6 justify-between"
+                        key={task.id}
+                        onMouseEnter={() => setHoverIndex(task.id)}
+                        onMouseLeave={() => setHoverIndex(-1)}
+                        className="flex cursor-pointer items-center py-4 px-6 border-b border-b-slate-300 justify-between"
                       >
                         <div className="flex gap-5">
                           <button
@@ -111,13 +111,13 @@ export default function Home() {
                           </p>
                         </div>
                         {hoverIndex === task.id && (
-                            <span onClick={() => handleDelete(task.id)}>
-                      <Image src={cancelImg} alt="Cancel" />
-                    </span>
+                          <span onClick={() => handleDelete(task.id)}>
+                            <Image src={cancelImg} alt="Cancel" />
+                          </span>
                         )}
                       </div>
                   ))}
-                  <hr className="border-veryDarkGrayishBlue" />
+                  <hr  />
                   <div className="flex justify-between items-center px-6 py-4 text-darkGrayishBlue font-bold">
                     <div>
                       <p>{todoList.filter((task) => !completedList.includes(task.id)).length} items left</p>
